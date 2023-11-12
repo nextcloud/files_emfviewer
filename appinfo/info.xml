@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Daniel Kesselberg <mail@danielkesselberg.de>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>files_emfviewer</id>
+    <name>EMF Viewer</name>
+    <summary>EMF viewer</summary>
+    <description><![CDATA[View EMF files in your Nextcloud.]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="mail@danielkesselberg.de">Daniel Kesselberg</author>
+    <namespace>Files_EMFViewer</namespace>
+    <category>files</category>
+    <category>office</category>
+    <bugs>https://github.com/nextcloud/files_emfviewer/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="28" max-version="28"/>
+    </dependencies>
+	<repair-steps>
+		<post-migration>
+			<step>OCA\Files_EMFViewer\Migration\RegisterMimeType</step>
+		</post-migration>
+		<install>
+			<step>OCA\Files_EMFViewer\Migration\RegisterMimeType</step>
+		</install>
+		<uninstall>
+			<step>OCA\Files_EMFViewer\Migration\UnregisterMimeType</step>
+		</uninstall>
+	</repair-steps>
+</info>
